@@ -1,0 +1,12 @@
+ Volume in drive C is OS
+ Volume Serial Number is 86F8-C839
+
+ Directory of C:\github
+
+11-01-2021  08:05    <DIR>          .
+11-01-2021  08:05    <DIR>          ..
+11-01-2021  08:05                 0 file.txt
+10-01-2021  16:26               238 first.html
+10-01-2021  16:28               267 second.html
+               3 File(s)            505 bytes
+               2 Dir(s)  114,090,041,344 bytes free
