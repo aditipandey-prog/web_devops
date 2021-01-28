@@ -13,11 +13,11 @@
         </p>
         <p>
             <label for="iemail">Email*:</label>
-            <input type="text" name="email" id="iemail" required="">
+            <input type="email" name="email" id="iemail" required="">
         </p>
         <p>
             <label for="icontact">Contact*:</label>
-            <input type="text" name="contact" id="icontact" required="">
+            <input type="text" name="contact" id="icontact" required="" maxlength="10">
         </p>
         <p>
             <label for="icity">City*:<sup>*</sup></label>
