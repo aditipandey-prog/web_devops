@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+        <style>
+            .container{
+            padding-top: 10%;
+                height: 200px;
+               border: 3px solid black; 
+            }
+            .p1{
+                
+                text-align: center;
+                color:rgb(0, 132, 255);
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .p2{
+                text-align: center;
+                color:rgb(119, 0, 255);
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .center1{
+                padding-left: 50%;
+            }
+            
+        </style>
+       
+    </head>
+    <body>
+        <div class="container">
+            <p class="p1">You have to speak to be heard, but sometimes you have to be silent to be appreciated</p>
+            <p class="p2">Live and let go. Do not be held down by what you can’t control</p>
+            <div class="center1">
+                <button onclick="swapText()">Change</button> 
+            </div>
+        </div>
+       
+         
+
+        <script>
+            function swapText()
+            {
+               p11=document.getElementsByClassName('p1')[0];
+               p21=document.getElementsByClassName('p2')[0];
+              temp=p11.textContent;
+              p11.textContent=p21.textContent;
+              p21.textContent=temp;
+            }
+           
+        </script>
+    </body>
+</html>
