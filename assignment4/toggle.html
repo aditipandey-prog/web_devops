@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>
+            Toggle Switch
+        </title>
+        <style>
+            .container{
+                padding-left: 40%;
+                padding-left: 40%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Press Switch On/Off</h1>
+            <img src="bulboff.jpg" id="img" width="200px" height="300px">
+            <input type="button" value="on" id="toggle">
+        </div>
+       
+        <script type="text/javascript">
+        document.getElementById('toggle').onclick=function(){
+            var onOff=document.getElementById('toggle').value;
+            if(onOff=='on'){
+               document.getElementById('img').src="bulbon.jpg";
+               document.getElementById('toggle').value="off";
+            }
+            else{
+                document.getElementById('img').src="bulboff.jpg";
+               document.getElementById('toggle').value="on";
+            }
+        }
+        </script>
+    </body>
+</html>
