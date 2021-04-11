@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number guessing game</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses">
+        previous guesses:
+      </p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+      let y=Math.floor(Math.random()*100)+1;
+      let guess=document.querySelector('.guesses');
+      let previousResult=document.querySelector('.lastResult');
+      let lowOrHi=document.querySelector('.lowOrHi');
+      let guessSubmit=document.querySelector('.guessSubmit');
+      let guessField=document.querySelector('.guessField');
+      
+      let count=1;
+      let restartButton;
+      function SameGuessOrNot()
+      {
+        let x=Number(guessField.value);
+           guess.textContent+=x+' ';
+        if(x===y){
+          setGameOver();
+          previousResult.textContent='Congratulations! you guessed it right!';
+         previousResult.style.backgroundColor='green';
+         lowOrHi.textContent="";
+         
+        }
+        else if(count>=10)
+        {
+          previousResult.textContent='GAME OVER!!!!!';
+          setGameOver();
+        }
+        else{
+          previousResult.textContent='wrong!';
+          previousResult.style.backgroundColor='red';
+           if(x>y)
+           {
+            lowOrHi.textContent='Last guess was too high!';
+           }
+           else if(x<y)
+           {
+            lowOrHi.textContent='Last guess was too low!';
+           }
+           
+        }
+        count++;
+        guessField.value="";
+         
+      }
+      guessSubmit.addEventListener('click',SameGuessOrNot);
+
+      function setGameOver(){
+        guessField.disabled=true;
+        guessSubmit.disabled=true;
+        restartButton=document.createElement("BUTTON");
+        var t=document.createTextNode("Restart Game");
+        restartButton.appendChild(t);
+        document.body.appendChild(restartButton);
+        restartButton.addEventListener('click',restartGame);
+
+      }
+      function restartGame(){
+        count=1;
+        const TotalParagraph=document.querySelectorAll('.resultParas p');
+        for(let i=0;i<TotalParagraph.length;i++)
+        {
+          if(i===0)
+           TotalParagraph[0].textContent="Previous guesses:"
+          TotalParagraph[i].textContent="";
+        }
+        restartButton.parentNode.removeChild(restartButton);
+        guessSubmit.disabled=false;
+        guessSubmit.disabled=false;
+        guessField.value="";
+        previousResult.style.backgroundColor='white';
+        y=Math.floor(Math.random()*100)+1;
+      }
+
+    
+    </script>
+  </body>
+</html>
